@@ -62,17 +62,6 @@ class LogAnalyticsPerf2(config: LogAnalyticsListenerConfiguration2) {
       // this is for testing purposes
       val dataJson3 = dataJson2 merge render("DateTimeProduced" -> nowAsISO)
 
-      /*
-  val data="{\"message\":\"goodmessage\",\"partitionId\":1,\"deviceid\":" +
-    "\"simulated\"," +
-    "\"avgtemperature\":74.78," +
-    "\"DateTimeProduced\":\"" +
-    nowAsISO +
-    "\"," +
-    "\"DateValue\":\"" +
-    nowAsISO +
-    "\"}"
-*/
 
   //    val str = compact(dataJson3)
 
