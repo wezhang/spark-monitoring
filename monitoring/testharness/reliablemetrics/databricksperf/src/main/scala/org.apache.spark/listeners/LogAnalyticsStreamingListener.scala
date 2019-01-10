@@ -2,7 +2,7 @@ package org.apache.spark.listeners
 
 import org.apache.spark.internal.Logging
 import org.apache.spark.streaming.scheduler._
-import org.apache.spark.{LogAnalytics, LogAnalyticsListenerConfiguration2, LogAnalyticsPerf, SparkConf,LogAnalyticsPerf2}
+import org.apache.spark.{LogAnalytics, LogAnalyticsListenerConfiguration2, SparkConf,LogAnalyticsPerf2}
 
 class LogAnalyticsStreamingListener(sparkConf: SparkConf) extends StreamingListener
   with Logging /*with LogAnalytics*/ {

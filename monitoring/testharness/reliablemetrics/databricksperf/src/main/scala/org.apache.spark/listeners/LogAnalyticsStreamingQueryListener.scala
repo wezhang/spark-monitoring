@@ -2,7 +2,7 @@ package org.apache.spark.listeners
 
 import org.apache.spark.internal.Logging
 import org.apache.spark.sql.streaming.StreamingQueryListener
-import org.apache.spark.{LogAnalytics, SparkConf,LogAnalyticsPerf,LogAnalyticsPerf2}
+import org.apache.spark.{LogAnalytics,LogAnalyticsPerf2,SparkConf}
 //import org.apache.spark.LogAnalyticsListenerConfiguration
 import org.apache.spark.LogAnalyticsListenerConfiguration2
 

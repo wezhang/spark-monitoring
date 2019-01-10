@@ -18,8 +18,7 @@ import scala.util.control.NonFatal
 
 class LogAnalyticsPerf2(config: LogAnalyticsListenerConfiguration2) {
 
-//  protected lazy val logAnalyticsClient = new LogAnalyticsClient(
-//    "422d63b4-4d37-4c2f-8bbb-bcf06b8e5b8f", "g2qLqxzH0fGlAYZ9zfHlZNnesj1fOwACF7gwbHOdG+Z7YBuVa41a5XY82Oqr7lqv60WyrUPdXOQV2qPINH2B5A==")
+
 
   protected lazy val logAnalyticsClient = new LogAnalyticsClient(
     config.workspaceId, config.secret)

@@ -3,7 +3,7 @@ package org.apache.spark.listeners
 import org.apache.spark.internal.Logging
 import org.apache.spark.scheduler._
 import org.apache.spark.util.Utils
-import org.apache.spark.{SparkConf,LogAnalyticsPerf,LogAnalytics,LogAnalyticsPerf2}
+import org.apache.spark.{SparkConf,LogAnalytics,LogAnalyticsPerf2}
 //import org.apache.spark.LogAnalyticsListenerConfiguration
 import org.apache.spark.LogAnalyticsListenerConfiguration2
 /**
