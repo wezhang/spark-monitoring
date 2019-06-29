@@ -65,13 +65,7 @@ export LOG_ANALYTICS_WORKSPACE_KEY=
 dbfs cp <local path to listeners.sh> dbfs:/databricks/monitoring-staging/listeners.sh
 ```
 
-6. Use the Azure Databricks CLI to copy **/src/spark-listeners/scripts/metrics.properties** to the directory created in step 3:
-
-```bash
-dbfs cp <local path to metrics.properties> dbfs:/databricks/monitoring-staging/metrics.properties
-```
-
-7. Use the Azure Databricks CLI to copy **spark-listeners-1.0-SNAPSHOT.jar** and **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** that were built in step 2 to the directory created in step 3:
+6. Use the Azure Databricks CLI to copy **spark-listeners-1.0-SNAPSHOT.jar** and **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** that were built in step 2 to the directory created in step 3:
 
 ```bash
 dbfs cp <local path to spark-listeners-1.0-SNAPSHOT.jar> dbfs:/databricks/monitoring-staging/spark-listeners-1.0-SNAPSHOT.jar

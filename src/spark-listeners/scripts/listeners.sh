@@ -10,6 +10,23 @@ STAGE_DIR=/dbfs/databricks/monitoring-staging
 DB_HOME=/databricks
 SPARK_HOME=$DB_HOME/spark
 SPARK_CONF_DIR=$SPARK_HOME/conf
+METRICS_PROPERTIES=$(cat << EOF
+# This will enable the sink for all of the instances.
+*.sink.loganalytics.class=org.apache.spark.metrics.sink.loganalytics.LogAnalyticsMetricsSink
+*.sink.loganalytics.period=5
+*.sink.loganalytics.unit=seconds
+
+# Enable JvmSource for instance master, worker, driver and executor
+master.source.jvm.class=org.apache.spark.metrics.source.JvmSource
+
+worker.source.jvm.class=org.apache.spark.metrics.source.JvmSource
+
+driver.source.jvm.class=org.apache.spark.metrics.source.JvmSource
+
+executor.source.jvm.class=org.apache.spark.metrics.source.JvmSource
+
+EOF
+)
 
 echo "Copying listener jar"
 cp -f "$STAGE_DIR/spark-listeners-1.0-SNAPSHOT.jar" /mnt/driver-daemon/jars || { echo "Error copying file"; exit 1;}
@@ -17,8 +34,7 @@ cp -f "$STAGE_DIR/spark-listeners-loganalytics-1.0-SNAPSHOT.jar" /mnt/driver-dae
 echo "Copied listener jar successfully"
 
 echo "Merging metrics.properties"
-cat "$STAGE_DIR/metrics.properties" <(echo) "$SPARK_CONF_DIR/metrics.properties" > "$SPARK_CONF_DIR/tmp.metrics.properties" || { echo "Error merging metrics.properties"; exit 1; }
-mv "$SPARK_CONF_DIR/tmp.metrics.properties" "$SPARK_CONF_DIR/metrics.properties" || { echo "Error writing metrics.properties"; exit 1; }
+echo "$(echo "$METRICS_PROPERTIES"; cat "$SPARK_CONF_DIR/metrics.properties")" > "$SPARK_CONF_DIR/metrics.properties" || { echo "Error writing metrics.properties"; exit 1; }
 echo "Merged metrics.properties successfully"
 
 # This will enable master/worker metrics
