@@ -85,6 +85,7 @@ tee -a ${LOG4J_CONFIG_FILE} << EOF
 # logAnalytics
 log4j.appender.logAnalyticsAppender=com.microsoft.pnp.logging.loganalytics.LogAnalyticsAppender
 log4j.appender.logAnalyticsAppender.filter.spark=com.microsoft.pnp.logging.SparkPropertyEnricher
+log4j.appender.logAnalyticsAppender.Threshold=ERROR
 EOF
 
 echo "END: Updating $LOG4J_CONFIG_FILE with Log Analytics appender"

@@ -35,7 +35,11 @@ object LogAnalyticsReporter {
     private var prefix: String = null
     private var rateUnit = TimeUnit.SECONDS
     private var durationUnit = TimeUnit.MILLISECONDS
-    private var filter = MetricFilter.ALL
+    private var filter = new MetricFilter() {
+      override def matches(name: String, metric: Metric): Boolean = {
+        name.startsWith("jvm.")
+      }
+    }
     private var logType = "SparkMetrics"
     private var workspaceId: String = null
     private var workspaceKey: String = null
