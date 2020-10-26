@@ -8,8 +8,9 @@ set -o pipefail
 # We will keep the names the same here, but not export them.
 # These must be changed if the associated Spark environment variables
 # are changed.
-DB_HOME=/databricks
-SPARK_HOME=$DB_HOME/spark
+#DB_HOME=/databricks
+DB_HOME=/synapse
+SPARK_HOME=$DB_HOME/SparkApplication
 SPARK_CONF_DIR=$SPARK_HOME/conf
 
 # Add your Log Analytics Workspace information below so all clusters use the same

@@ -8,8 +8,10 @@ object SparkInformation {
   private val APPLICATION_ID = "spark.app.id"
 
   // Databricks-specific
-  private val DB_CLUSTER_ID = "spark.databricks.clusterUsageTags.clusterId"
-  private val DB_CLUSTER_NAME = "spark.databricks.clusterUsageTags.clusterName"
+//  private val DB_CLUSTER_ID = "spark.databricks.clusterUsageTags.clusterId"
+  private val DB_CLUSTER_ID = "spark.cluster.name"
+//  private val DB_CLUSTER_NAME = "spark.databricks.clusterUsageTags.clusterName"
+  private val DB_CLUSTER_NAME = "spark.synapse.pool.name"
   // This is the environment variable name set in our init script.
   private val DB_CLUSTER_ID_ENVIRONMENT_VARIABLE = "DB_CLUSTER_ID"
 
@@ -53,7 +55,7 @@ object SparkInformation {
       case None => {
         // If we don't have a SparkEnv, we could be on any node type, really.
         Map(
-          "clusterId" -> sys.env.get(DB_CLUSTER_ID_ENVIRONMENT_VARIABLE),
+          "clusterId" -> Option("linkedKeyVaultsTestCluster"),
           "nodeType" -> nodeType
         )
       }

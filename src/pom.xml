@@ -45,8 +45,8 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.version>3.5.4</maven.version>
-        <spark.listeners.version>1.0.0</spark.listeners.version>
-        <spark.listeners.loganalytics.version>1.0.0</spark.listeners.loganalytics.version>
+        <spark.listeners.version>1.0.0-kv</spark.listeners.version>
+        <spark.listeners.loganalytics.version>1.0.0-kv</spark.listeners.loganalytics.version>
     </properties>
     <dependencyManagement>
         <dependencies>

@@ -1,5 +1,6 @@
 package com.microsoft.pnp.client.loganalytics;
 
+import mssparkutils.credentialsJ;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
@@ -243,6 +244,7 @@ public class LogAnalyticsClient implements Closeable {
             name == null) {
             return null;
         }
-        return String.format(RESOURCE_ID, id, grpName, provName, type, name);
+        //return String.format(RESOURCE_ID, id, grpName, provName, type, name);
+        return credentialsJ.getSecret("zhwe4spkmonpoc", "sparkPoolResourceId", "AzureKeyVault1");
     }
 }
